@@ -13,40 +13,31 @@ const clearAuthToken = () => {
 	axios.defaults.headers.common.Authorization = "";
 };
 
-export const register = createAsyncThunk("auth/register", (data, thunkAPI) => {
-	// try {
-	// 	const response = await axios.post("users/signup", userInfo);
-	// 	setAuthToken(response.data.token);
-	// 	return response.data;
-	// } catch (error) {
-	// 	thunkAPI.rejectWithValue(error);
-	// }
-	return axios
-		.post("users/signup", data)
-		.then((response) => {
+export const register = createAsyncThunk(
+	"auth/register",
+	async (userInfo, thunkAPI) => {
+		try {
+			const response = await axios.post("users/signup", userInfo);
 			setAuthToken(response.data.token);
-			console.log(response.data);
 			return response.data;
-		})
-		.catch((error) => thunkAPI.rejectWithValue(error));
-});
-
-export const logIn = createAsyncThunk("auth/login", async (data, thunkAPI) => {
-	try {
-		const response = await axios.post("users/login", data);
-		setAuthToken(response.data.token);
-		return response.data;
-	} catch (error) {
-		thunkAPI.rejectWithValue(error);
+		} catch (error) {
+			thunkAPI.rejectWithValue(error);
+		}
 	}
-	// axios
-	// 	.post("users/login", data)
-	// 	.then((response) => {
-	// 		setAuthToken(response.data.token);
-	// 		return response.data;
-	// 	})
-	// 	.catch((error) => thunkAPI.rejectWithValue(error));
-});
+);
+
+export const logIn = createAsyncThunk(
+	"auth/login",
+	async (userInfo, thunkAPI) => {
+		try {
+			const response = await axios.post("users/login", userInfo);
+			setAuthToken(response.data.token);
+			return response.data;
+		} catch (error) {
+			thunkAPI.rejectWithValue(error);
+		}
+	}
+);
 
 export const logOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
 	try {
@@ -55,12 +46,6 @@ export const logOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
 	} catch (error) {
 		thunkAPI.rejectWithValue(error);
 	}
-	// axios
-	// 	.post("users/logout")
-	// 	.then(() => {
-	// 		clearAuthToken();
-	// 	})
-	// 	.catch((error) => thunkAPI.rejectWithValue(error));
 });
 
 // export const refreshUser = createAsyncThunk(
