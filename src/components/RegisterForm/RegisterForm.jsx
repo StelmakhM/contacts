@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { register } from "../../redux/auth/authOperations";
-
 import FormRow from "../FormRow/FormRow";
+
 export default function RegisterForm() {
 	const dispatch = useDispatch();
 	const handleSubmit = (event) => {

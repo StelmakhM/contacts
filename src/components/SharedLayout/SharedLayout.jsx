@@ -1,12 +1,12 @@
 import React from "react";
 import { Outlet } from "react-router";
-import NavBar from "../Navbar/NavBar";
+import AppBar from "../AppBar/AppBar";
 
 export default function SharedLayout() {
 	return (
-		<div>
-			<NavBar />
+		<>
+			<AppBar />
 			<Outlet />
-		</div>
+		</>
 	);
 }
