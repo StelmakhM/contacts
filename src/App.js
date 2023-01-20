@@ -6,6 +6,8 @@ import Contacts from "./pages/Contacts";
 import { refreshUser } from "./redux/auth/authOperations";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
+import { PrivateRoute } from "./PrivateRoute";
+import RestrictedRoute from "./RestrictedRoute";
 function App() {
 	const dispatch = useDispatch();
 	useEffect(() => {
@@ -16,9 +18,33 @@ function App() {
 		<BrowserRouter>
 			<Routes>
 				<Route path="/" element={<SharedLayout />}>
-					<Route path="register" element={<RegisterForm />} />
-					<Route path="login" element={<LoginForm />} />
-					<Route path="contacts" element={<Contacts />} />
+					<Route
+						path="register"
+						element={
+							<RestrictedRoute
+								component={<RegisterForm />}
+								redirectTo="/"
+							/>
+						}
+					/>
+					<Route
+						path="login"
+						element={
+							<RestrictedRoute
+								component={<LoginForm />}
+								redirectTo="/"
+							/>
+						}
+					/>
+					<Route
+						path="contacts"
+						element={
+							<PrivateRoute
+								component={<Contacts />}
+								redirectTo="/login"
+							/>
+						}
+					/>
 				</Route>
 			</Routes>
 		</BrowserRouter>
