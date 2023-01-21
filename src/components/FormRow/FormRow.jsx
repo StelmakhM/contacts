@@ -1,8 +1,23 @@
-export default function FormRow({ type, name, labelText }) {
+import { TextField } from "@mui/material";
+
+export default function FormRow({
+	type,
+	name,
+	labelText,
+	onChange = Function.prototype,
+}) {
 	return (
 		<>
-			<label htmlFor={name}>{labelText}</label>
-			<input id={name} type={type} name={name} />
+			<TextField
+				onChange={onChange}
+				fullWidth
+				label={labelText}
+				id={name}
+				type={type}
+				name={name}
+				variant="outlined"
+				required
+			/>
 		</>
 	);
 }

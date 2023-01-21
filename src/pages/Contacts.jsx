@@ -1,3 +1,5 @@
+import { Container } from "@mui/material";
+import { Box } from "@mui/system";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import ContactForm from "../components/ContactForm/ContactForm";
@@ -13,10 +15,26 @@ export default function Contacts() {
 	}, []);
 
 	return (
-		<main>
-			<ContactForm />
-			<Filter />
-			<ContactList />
-		</main>
+		<Container
+			maxWidth="md"
+			component="main"
+			sx={{
+				m: "1em auto",
+				display: "flex",
+				flexWrap: "wrap",
+				justifyContent: {
+					sm: "space-between",
+					xs: "center",
+				},
+			}}
+		>
+			<Box width="40%" minWidth="250px">
+				<ContactForm />
+				<Filter />
+			</Box>
+			<Box>
+				<ContactList />
+			</Box>
+		</Container>
 	);
 }

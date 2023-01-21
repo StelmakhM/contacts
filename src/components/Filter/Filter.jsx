@@ -1,5 +1,7 @@
+import { Box, Typography } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { setFilter } from "../../redux/filter/filterSlice";
+import FormRow from "../FormRow/FormRow";
 
 export default function Filter() {
 	const dispatch = useDispatch();
@@ -9,15 +11,19 @@ export default function Filter() {
 
 	return (
 		<>
-			<h2>Contacts</h2>
-			<label>
-				Enter search query
-				<input
-					type="text"
-					name="filter"
-					onChange={(e) => handleFilter(e)}
-				/>
-			</label>
+			<Typography
+				variant="h5"
+				component="h2"
+				sx={{ m: "0.5em 0", textAlign: "center" }}
+			>
+				Search contact
+			</Typography>
+			<FormRow
+				name="filter"
+				type="text"
+				labelText="Enter contact name"
+				onChange={handleFilter}
+			/>
 		</>
 	);
 }
