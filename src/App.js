@@ -23,7 +23,7 @@ function App() {
 	return isRefreshing ? (
 		<Spinner />
 	) : (
-		<BrowserRouter>
+		<BrowserRouter basename="goit-react-hw-08-phonebook">
 			<Routes>
 				<Route path="/" element={<SharedLayout />}>
 					<Route index element={<HomePage />} />
