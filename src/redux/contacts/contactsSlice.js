@@ -20,35 +20,36 @@ const handleRejected = (state, action) => {
 const contactsSlice = createSlice({
 	name: "contacts",
 	initialState,
-	extraReducers: {
-		[fetchContacts.pending]: handlePending,
-		[addContact.pending]: handlePending,
-		[removeContact.pending]: handlePending,
-		[fetchContacts.rejected]: handleRejected,
-		[addContact.rejected]: handleRejected,
-		[removeContact.rejected]: handleRejected,
-		[fetchContacts.fulfilled](state, action) {
-			state.contacts = action.payload;
-			state.isLoading = false;
-			state.error = null;
-		},
-		[addContact.fulfilled](state, action) {
-			state.contacts.push(action.payload);
-			state.isLoading = false;
-			state.error = null;
-		},
-		[removeContact.fulfilled](state, action) {
-			state.contacts = state.contacts.filter(
-				(contact) => contact.id !== action.payload.id
-			);
-			state.isLoading = false;
-			state.error = null;
-		},
-		[logOut.fulfilled](state) {
-			state.contacts = [];
-			state.isLoading = false;
-			state.error = null;
-		},
+	extraReducers: (builder) => {
+		builder
+			.addCase(fetchContacts.pending, handlePending)
+			.addCase(addContact.pending, handlePending)
+			.addCase(removeContact.pending, handlePending)
+			.addCase(fetchContacts.rejected, handleRejected)
+			.addCase(addContact.rejected, handleRejected)
+			.addCase(removeContact.rejected, handleRejected)
+			.addCase(fetchContacts.fulfilled, (state, action) => {
+				state.contacts = action.payload;
+				state.isLoading = false;
+				state.error = null;
+			})
+			.addCase(addContact.fulfilled, (state, action) => {
+				state.contacts.push(action.payload);
+				state.isLoading = false;
+				state.error = null;
+			})
+			.addCase(removeContact.fulfilled, (state, action) => {
+				state.contacts = state.contacts.filter(
+					(contact) => contact.id !== action.payload.id
+				);
+				state.isLoading = false;
+				state.error = null;
+			})
+			.addCase(logOut.fulfilled, (state) => {
+				state.contacts = [];
+				state.isLoading = false;
+				state.error = null;
+			});
 	},
 });
 
