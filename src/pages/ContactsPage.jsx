@@ -12,7 +12,6 @@ import Spinner from "../utils/Spinner/Spinner";
 export default function ContactsPage() {
 	const dispatch = useDispatch();
 	const isLoading = useSelector(selectIsLoading);
-	console.log(isLoading);
 
 	useEffect(() => {
 		dispatch(fetchContacts());
