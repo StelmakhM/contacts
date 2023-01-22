@@ -32,7 +32,14 @@ export default function Contacts() {
 				<ContactForm />
 				<Filter />
 			</Box>
-			<Box>
+			<Box
+				sx={{
+					width: "50%",
+					display: "flex",
+					flexDirection: "column",
+					alignItems: "center",
+				}}
+			>
 				<ContactList />
 			</Box>
 		</Container>
