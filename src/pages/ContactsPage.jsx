@@ -1,14 +1,18 @@
 import { Container } from "@mui/material";
 import { Box } from "@mui/system";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ContactForm from "../components/ContactForm/ContactForm";
 import ContactList from "../components/ContactLists/ContactLists";
 import Filter from "../components/Filter/Filter";
 import { fetchContacts } from "../redux/contacts/contactsOperations";
+import { selectIsLoading } from "../redux/contacts/contactsSelectors";
+import Spinner from "../utils/Spinner/Spinner";
 
-export default function Contacts() {
+export default function ContactsPage() {
 	const dispatch = useDispatch();
+	const isLoading = useSelector(selectIsLoading);
+	console.log(isLoading);
 
 	useEffect(() => {
 		dispatch(fetchContacts());
@@ -48,6 +52,7 @@ export default function Contacts() {
 			>
 				<ContactList />
 			</Box>
+			{isLoading && <Spinner />}
 		</Container>
 	);
 }

@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Notify } from "notiflix/build/notiflix-notify-aio";
 import { addContact } from "../../redux/contacts/contactsOperations";
-import { Box, Button, Container, Link, Typography } from "@mui/material";
-import { NavLink as ReactNav } from "react-router-dom";
+import { Box, Button, Typography } from "@mui/material";
 import FormRow from "../FormRow/FormRow";
+import { selectContacts } from "../../redux/contacts/contactsSelectors";
 
 export default function ContactForm() {
 	const dispatch = useDispatch();
-	const contacts = useSelector((state) => state.contacts.contacts);
+	const contacts = useSelector(selectContacts);
 	const normalizeValue = (value) => value.toLowerCase().trim();
 
 	const handleSubmit = (event) => {

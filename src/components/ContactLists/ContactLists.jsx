@@ -11,10 +11,14 @@ import {
 	IconButton,
 	Typography,
 } from "@mui/material";
+import {
+	selectContacts,
+	selectFilterValue,
+} from "../../redux/contacts/contactsSelectors";
 
 export default function ContactList() {
-	const contacts = useSelector((state) => state.contacts.contacts);
-	const filter = useSelector((state) => state.filter);
+	const contacts = useSelector(selectContacts);
+	const filter = useSelector(selectFilterValue);
 	const dispatch = useDispatch();
 
 	if (!contacts) return;

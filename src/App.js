@@ -1,16 +1,18 @@
-import SharedLayout from "./components/SharedLayout/SharedLayout";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Contacts from "./pages/ContactsPage";
-import { refreshUser } from "./redux/auth/authOperations";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { PrivateRoute } from "./PrivateRoute";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useEffect, lazy } from "react";
+import SharedLayout from "./components/SharedLayout/SharedLayout";
 import RestrictedRoute from "./RestrictedRoute";
+import PrivateRoute from "./PrivateRoute";
+import { refreshUser } from "./redux/auth/authOperations";
 import { selectIsRefreshing } from "./redux/auth/authSelectors";
 import Spinner from "./utils/Spinner/Spinner";
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
-import HomePage from "./pages/HomePage";
+
+const HomePage = lazy(() => import("./pages/HomePage"));
+const ContactsPage = lazy(() => import("./pages/ContactsPage"));
+const LoginPage = lazy(() => import("./pages/LoginPage"));
+const RegisterPage = lazy(() => import("./pages/RegisterPage"));
+
 function App() {
 	const isRefreshing = useSelector(selectIsRefreshing);
 	const dispatch = useDispatch();
@@ -39,7 +41,7 @@ function App() {
 						element={
 							<RestrictedRoute
 								component={<LoginPage />}
-								redirectTo="/"
+								redirectTo="/contacts"
 							/>
 						}
 					/>
@@ -47,7 +49,7 @@ function App() {
 						path="contacts"
 						element={
 							<PrivateRoute
-								component={<Contacts />}
+								component={<ContactsPage />}
 								redirectTo="/login"
 							/>
 						}

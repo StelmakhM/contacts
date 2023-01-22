@@ -5,10 +5,10 @@ import {
 	selectIsLoggedIn,
 } from "./redux/auth/authSelectors";
 
-export const PrivateRoute = ({ component, redirectTo = "/" }) => {
+export default function PrivateRoute({ component, redirectTo = "/" }) {
 	const isRefreshing = useSelector(selectIsRefreshing);
 	const isLoggedIn = useSelector(selectIsLoggedIn);
 
 	const shouldRedirect = !isLoggedIn && !isRefreshing;
 	return shouldRedirect ? <Navigate to={redirectTo} /> : component;
-};
+}
