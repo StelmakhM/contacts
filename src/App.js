@@ -1,28 +1,35 @@
-import LoginForm from "./components/LoginForm/LoginForm";
-import RegisterForm from "./components/RegisterForm/RegisterForm";
 import SharedLayout from "./components/SharedLayout/SharedLayout";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Contacts from "./pages/Contacts";
+import Contacts from "./pages/ContactsPage";
 import { refreshUser } from "./redux/auth/authOperations";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { PrivateRoute } from "./PrivateRoute";
 import RestrictedRoute from "./RestrictedRoute";
+import { selectIsRefreshing } from "./redux/auth/authSelectors";
+import Spinner from "./utils/Spinner/Spinner";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import HomePage from "./pages/HomePage";
 function App() {
+	const isRefreshing = useSelector(selectIsRefreshing);
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(refreshUser());
 	}, [dispatch]);
 
-	return (
+	return isRefreshing ? (
+		<Spinner />
+	) : (
 		<BrowserRouter>
 			<Routes>
 				<Route path="/" element={<SharedLayout />}>
+					<Route index element={<HomePage />} />
 					<Route
 						path="register"
 						element={
 							<RestrictedRoute
-								component={<RegisterForm />}
+								component={<RegisterPage />}
 								redirectTo="/"
 							/>
 						}
@@ -31,7 +38,7 @@ function App() {
 						path="login"
 						element={
 							<RestrictedRoute
-								component={<LoginForm />}
+								component={<LoginPage />}
 								redirectTo="/"
 							/>
 						}

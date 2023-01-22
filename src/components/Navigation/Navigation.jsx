@@ -1,14 +1,7 @@
-import {
-	ListItem,
-	ListItemText,
-	ListItemButton,
-	List,
-	ListItemIcon,
-} from "@mui/material";
+import { ListItem, ListItemText, ListItemButton, List } from "@mui/material";
 import { useSelector } from "react-redux";
 import { NavLink as ReactNav } from "react-router-dom";
 import { selectIsLoggedIn } from "../../redux/auth/authSelectors";
-import ContactPhoneIcon from "@mui/icons-material/ContactPhone";
 
 export default function Navigation() {
 	const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -23,7 +16,9 @@ export default function Navigation() {
 						sx={{
 							"&.active": {
 								color: "black",
+								backgroundColor: "#ffffff",
 							},
+							borderRadius: "20px",
 						}}
 					>
 						<ListItemText primary="Home" />
@@ -37,7 +32,9 @@ export default function Navigation() {
 							sx={{
 								"&.active": {
 									color: "black",
+									backgroundColor: "#ffffff",
 								},
+								borderRadius: "20px",
 							}}
 						>
 							<ListItemText primary="Contacts" />

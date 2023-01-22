@@ -12,7 +12,9 @@ export default function AuthNav() {
 					sx={{
 						"&.active": {
 							color: "black",
+							backgroundColor: "#ffffff",
 						},
+						borderRadius: "20px",
 					}}
 				>
 					<ListItemText primary="Register" />
@@ -26,7 +28,9 @@ export default function AuthNav() {
 					sx={{
 						"&.active": {
 							color: "black",
+							backgroundColor: "#ffffff",
 						},
+						borderRadius: "20px",
 					}}
 				>
 					<ListItemText primary="Login" />

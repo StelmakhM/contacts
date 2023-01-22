@@ -28,7 +28,13 @@ export default function Contacts() {
 				},
 			}}
 		>
-			<Box width="40%" minWidth="250px">
+			<Box
+				sx={{
+					width: "40%",
+					minWidth: "250px",
+					mr: "1em",
+				}}
+			>
 				<ContactForm />
 				<Filter />
 			</Box>

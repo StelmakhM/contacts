@@ -13,12 +13,15 @@ export const UserMenu = () => {
 				variant="button"
 				sx={{
 					textTransform: "capitalize",
-					fontSize: "1rem",
+					fontSize: "16px",
 				}}
 			>
 				Welcome, {userName}
 			</Typography>
 			<Button
+				sx={{
+					borderRadius: "10px",
+				}}
 				onClick={() => dispatch(logOut())}
 				color="inherit"
 				endIcon={<LogoutIcon />}
@@ -28,7 +31,7 @@ export const UserMenu = () => {
 					sx={{
 						ml: "auto",
 						textTransform: "capitalize",
-						fontSize: "1rem",
+						fontSize: "16px",
 					}}
 				>
 					Logout
