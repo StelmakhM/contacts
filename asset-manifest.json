@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/StelmakhM/goit-react-hw-08-phonebook/static/css/main.017db128.css",
+    "main.js": "/StelmakhM/goit-react-hw-08-phonebook/static/js/main.18ee2b45.js",
+    "static/js/586.14215d6e.chunk.js": "/StelmakhM/goit-react-hw-08-phonebook/static/js/586.14215d6e.chunk.js",
+    "static/js/361.cf49d7b2.chunk.js": "/StelmakhM/goit-react-hw-08-phonebook/static/js/361.cf49d7b2.chunk.js",
+    "static/js/501.09107661.chunk.js": "/StelmakhM/goit-react-hw-08-phonebook/static/js/501.09107661.chunk.js",
+    "static/js/751.439e6e7f.chunk.js": "/StelmakhM/goit-react-hw-08-phonebook/static/js/751.439e6e7f.chunk.js",
+    "static/js/500.7f61de42.chunk.js": "/StelmakhM/goit-react-hw-08-phonebook/static/js/500.7f61de42.chunk.js",
+    "static/js/477.b57c23f5.chunk.js": "/StelmakhM/goit-react-hw-08-phonebook/static/js/477.b57c23f5.chunk.js",
+    "static/media/heroimage.svg": "/StelmakhM/goit-react-hw-08-phonebook/static/media/heroimage.a8e1600eaac7c0ff8773bd7f8b21480f.svg",
+    "index.html": "/StelmakhM/goit-react-hw-08-phonebook/index.html",
+    "main.017db128.css.map": "/StelmakhM/goit-react-hw-08-phonebook/static/css/main.017db128.css.map",
+    "main.18ee2b45.js.map": "/StelmakhM/goit-react-hw-08-phonebook/static/js/main.18ee2b45.js.map",
+    "586.14215d6e.chunk.js.map": "/StelmakhM/goit-react-hw-08-phonebook/static/js/586.14215d6e.chunk.js.map",
+    "361.cf49d7b2.chunk.js.map": "/StelmakhM/goit-react-hw-08-phonebook/static/js/361.cf49d7b2.chunk.js.map",
+    "501.09107661.chunk.js.map": "/StelmakhM/goit-react-hw-08-phonebook/static/js/501.09107661.chunk.js.map",
+    "751.439e6e7f.chunk.js.map": "/StelmakhM/goit-react-hw-08-phonebook/static/js/751.439e6e7f.chunk.js.map",
+    "500.7f61de42.chunk.js.map": "/StelmakhM/goit-react-hw-08-phonebook/static/js/500.7f61de42.chunk.js.map",
+    "477.b57c23f5.chunk.js.map": "/StelmakhM/goit-react-hw-08-phonebook/static/js/477.b57c23f5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.017db128.css",
+    "static/js/main.18ee2b45.js"
+  ]
+}
